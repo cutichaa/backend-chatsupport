@@ -1,0 +1,18 @@
+Standar API
+
+=====================================================================================================================
+
+Standar Status Response
+200 - OK --> Call API Success
+201 CREATED --> Post Success
+400 - BAD REQUEST --> Error on Client SIde (Bisa input yang salah dll)
+401  - UNAUTHORIZED --> User not authorized to the REQUEST
+403 - FORBIDDEN --> User not allowed to access
+400 - NOT FOUND --> Request endpoint not found
+500 INTERNAL SERVER ERROR --> Error on server side
+502 - BAD GATEWAY --> Invalid response from another request
+
+=====================================================================================================================
+
+Authentication
+Login

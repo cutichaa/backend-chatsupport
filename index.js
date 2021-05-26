@@ -6,8 +6,9 @@ const path = require('path');
 
 const app = express();
 
-const addOPRoutes = require('./src/routers/tambahOperator');
+const addOPRoutes = require('./src/routers/operator');
 const upImageRoutes = require('./src/routers/uploadGambar');
+const noKaderRoutes = require('./src/routers/kader');
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => { // tempat nanti ditaro gambarnye yaitu di folder images
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
 
 app.use('/', addOPRoutes);
 app.use('/', upImageRoutes);
+app.use('/', noKaderRoutes);
 
 
 app.use((error, req, res, next) => {

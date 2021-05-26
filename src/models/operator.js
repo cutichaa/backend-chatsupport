@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const modelAddOP = new Schema({
+const modelOP = new Schema({
     fname: {
         type: String,
         require: true,
@@ -30,4 +30,4 @@ const modelAddOP = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('modelAddOP', modelAddOP);
+module.exports = mongoose.model('modelOP', modelOP);

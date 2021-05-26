@@ -1,5 +1,5 @@
 const {ValidationResult, validationResult} = require('express-validator');
-const modelAddOP = require('../models/tambahOperator');
+const modelOP = require('../models/operator');
 
 exports.addOperator = (req, res, next) => {
 
@@ -19,7 +19,7 @@ exports.addOperator = (req, res, next) => {
     const email = req.body.email;
     const nik = req.body.nik;
     
-    const addOP = new modelAddOP({
+    const addOP = new modelOP({
         fname: fname,
         lname: lname,
         username: username,
@@ -41,7 +41,7 @@ exports.addOperator = (req, res, next) => {
 }
 
 exports.getAllOperator = (req, res, next) => {
-    modelAddOP.find()
+    modelOP.find()
     .then(result => {
         res.status(200).json({
             message: "Data semua operator berhasil dipanggil.",
@@ -55,7 +55,7 @@ exports.getAllOperator = (req, res, next) => {
 
 exports.getOperatorById = (req, res, next) => {
     const operatorId = req.params.operatorId;
-    modelAddOP.findById(operatorId)
+    modelOP.findById(operatorId)
     .then(result => {
         if(!result) {
             const error = new Error('Operator tidak ditemukan.');
@@ -90,7 +90,7 @@ exports.updateOperator = (req, res, next) => {
     const nik = req.body.nik;
     const operatorId = req.params.operatorId;
 
-    modelAddOP.findById(operatorId)
+    modelOP.findById(operatorId)
     .then(operator => {
         if(!operator) {
             const error = new Error('Operator tidak ditemukan.');
@@ -122,14 +122,14 @@ exports.updateOperator = (req, res, next) => {
 
 exports.deleteOperator = (req, res, next) => {
     const operatorId = req.params.operatorId;
-    modelAddOP.findById(operatorId)
+    modelOP.findById(operatorId)
     .then(operator => {
         if(!operator) {
             const error = new Error('Operator tidak ditemukan.');
             error.errorStatus = 404;
             throw error;
         }
-        return modelAddOP.findByIdAndRemove(operatorId);
+        return modelOP.findByIdAndRemove(operatorId);
     })
     .then(result => {
         res.status(200).json({

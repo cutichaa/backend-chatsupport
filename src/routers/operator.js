@@ -3,7 +3,7 @@ const {body} = require('express-validator');
 
 const router = express.Router();
 
-const routerController = require('../controllers/tambahOperator');
+const routerController = require('../controllers/operator');
 
 
 router.post('/admin/add-operator', [
